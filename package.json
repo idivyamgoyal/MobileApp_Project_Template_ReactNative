@@ -7,7 +7,8 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "prepare": "npx husky install"
   },
   "dependencies": {
     "react": "18.1.0",
@@ -38,6 +39,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "install": "^0.13.0",
     "jest": "^26.6.3",
+    "lint-staged": "^13.0.3",
     "metro-react-native-babel-preset": "0.72.3",
     "prettier": "^2.7.1",
     "react-test-renderer": "18.1.0",
@@ -52,6 +54,19 @@
       "jsx",
       "json",
       "node"
+    ]
+  },
+  "lint-staged": {
+    "*.ts": [
+      "prettier --write",
+      "eslint --quiet"
+    ],
+    "*.tsx": [
+      "prettier --write",
+      "eslint --quiet"
+    ],
+    "*.json": [
+      "prettier --write"
     ]
   }
 }
